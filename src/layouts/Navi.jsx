@@ -5,9 +5,11 @@ import SingedOut from "./SingedOut";
 import SignedIn from "./SignedIn";
 import { useHistory } from "react-router";
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 
 export default function Navi() {
+  const {cartItems} = useSelector(state => state.cart)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const history = useHistory();
 
@@ -26,7 +28,7 @@ export default function Navi() {
           <Menu.Item name="messages" />
 
           <Menu.Menu position="right">
-            <CartSummary/>
+            {cartItems.length>0&&<CartSummary/>}
             {isAuthenticated?<SignedIn signOut={handleSıgnOut} />:<SingedOut signIn={handleSıgnIn}/>}
             
             
