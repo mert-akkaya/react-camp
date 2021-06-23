@@ -8,7 +8,7 @@ import {toast} from "react-toastify"
 
 export default function ProductList() {
 
-  //fonksiyon çağırıoruz
+  //fonksiyon/aksiyon çağırıoruz
   const dispatch = useDispatch()
 
   const [products, setProducts] = useState([]);
@@ -47,7 +47,7 @@ export default function ProductList() {
               <Table.Cell>{product.unitsInStock}</Table.Cell>
               <Table.Cell>{product.quantityPerUnit}</Table.Cell>
               <Table.Cell>{product.category.categoryName}</Table.Cell>
-              <Table.Cell><Button onClick={()=>handleAddToCart(product)}></Button></Table.Cell>
+              <Table.Cell><Button primary onClick={()=>handleAddToCart(product)}>Sepete ekle</Button></Table.Cell>
             </Table.Row>
           ))} 
         </Table.Body>
